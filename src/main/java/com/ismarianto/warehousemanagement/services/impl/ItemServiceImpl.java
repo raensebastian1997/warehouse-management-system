@@ -1,6 +1,7 @@
 package com.ismarianto.warehousemanagement.services.impl;
 
 import com.ismarianto.warehousemanagement.models.Item;
+import com.ismarianto.warehousemanagement.models.Variant;
 import com.ismarianto.warehousemanagement.repository.ItemRepository;
 import com.ismarianto.warehousemanagement.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public List<Item> getAllItems() {
-        return itemRepository.findAll();
+        return itemRepository.findAllWithVariants();
     }
 
     @Override
@@ -28,6 +29,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Item createItem(Item item) {
+        for (Variant variant : item.getVariants()) {
+            variant.setItem(item);
+        }
         return itemRepository.save(item);
     }
 
@@ -35,10 +39,12 @@ public class ItemServiceImpl implements ItemService {
     public Item updateItem(Long id, Item itemDetails) {
         try {
             Item item = itemRepository.findById(id)
-                    .orElseThrow(() -> new com.ismarianto.warehousemanagement.exception.ResourceNotFoundException("Item not found with id: " + id));
+                    .orElseThrow(() ->
+                            new com.ismarianto.warehousemanagement.exception.ResourceNotFoundException("Item not found with id: " + id));
             item.setName(itemDetails.getName());
             item.setVariants(itemDetails.getVariants());
             return itemRepository.save(item);
+
         } catch (Exception e) {
             throw new RuntimeException("Error updating item: " + e.getMessage());
         }

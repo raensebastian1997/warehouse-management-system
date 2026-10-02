@@ -14,7 +14,7 @@ public class Item {
 
     private String name;
 
-    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
     private List<Variant> variants;
 
     public Long getId() {

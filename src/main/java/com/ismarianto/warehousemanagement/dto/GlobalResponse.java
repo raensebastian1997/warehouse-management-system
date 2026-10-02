@@ -1,6 +1,7 @@
 package com.ismarianto.warehousemanagement.dto;
 
 import org.springframework.http.HttpStatus;
+
 import java.time.LocalDateTime;
 
 public class GlobalResponse<T> {
@@ -8,20 +9,20 @@ public class GlobalResponse<T> {
     private T data;
     private String message;
     private HttpStatus status;
-    private LocalDateTime timestamp;
+    private LocalDateTime timestamp = LocalDateTime.now();
     private String error;
 
-    public GlobalResponse(
-            T data,
-            String message,
-            HttpStatus status,
-            LocalDateTime timestamp
-    ) {
+
+    public GlobalResponse(T data, String message, HttpStatus status) {
+        this(data, message, status, null);
+    }
+
+
+    public GlobalResponse(T data, String message, HttpStatus status, String error) {
         this.data = data;
         this.message = message;
         this.status = status;
-        this.timestamp = timestamp;
-        this.error = null;
+        this.error = error;
     }
 
     public T getData() {
