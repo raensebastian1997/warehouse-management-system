@@ -1,56 +1,58 @@
 # Warehouse Management System
 
-Rest Api sederhana untuk manajemen gudang (Warehouse Management) yang dibangun menggunakan Spring Boot.
+A simple REST API for warehouse management built with Spring Boot.
 
-## Prasyarat
+## Prerequisites
 
-Pastikan Anda telah menginstal perangkat lunak berikut sebelum melanjutkan:
+Make sure you have installed the following software before proceeding:
 
--   [Java Development Kit (JDK) 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) atau versi yang lebih baru.
--   [Apache Maven](https://maven.apache.org/download.cgi) (Opsional, karena proyek ini sudah menyertakan Maven Wrapper).
+- [Java Development Kit (JDK) 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) or later.
+- [Apache Maven](https://maven.apache.org/download.cgi) (Optional, since this project already includes the Maven Wrapper).
 
-## Cara Menjalankan Aplikasi
+## How to Run the Application
 
-1.  **Clone Repository**
+1. **Clone the Repository**
 
-    ```bash
-    git clone <URL_REPOSITORY_ANDA>
-    cd warehouse-management
-    ```
+   ```bash
+   git clone https://github.com/raensebastian1997/warehouse-management-system.git
+   cd warehouse-management-system
+   ```
 
-2.  **Jalankan Aplikasi menggunakan Maven Wrapper**
+2. **Run the Application Using the Maven Wrapper**
 
-    Buka terminal atau command prompt di direktori root proyek, lalu jalankan perintah berikut:
+   Open a terminal or command prompt in the project root directory, then run the following command:
 
-    -   Untuk pengguna Windows:
-        ```bash
-        mvnw.cmd spring-boot:run
-        ```
+    - For Windows users:
 
-    -   Untuk pengguna Linux/macOS:
-        ```bash
-        ./mvnw spring-boot:run
-        ```
+      ```bash
+      mvnw.cmd spring-boot:run
+      ```
 
-    Aplikasi akan berjalan pada port `8080` secara default.
+    - For Linux/macOS users:
 
-## Akses Aplikasi
+      ```bash
+      ./mvnw spring-boot:run
+      ```
 
-Setelah aplikasi berhasil berjalan, Anda dapat mengakses beberapa endpoint berikut melalui browser:
+   The application will run on port `8080` by default.
+
+## Accessing the Application
+
+After the application starts successfully, you can access the following endpoints through your browser:
 
 ### 1. H2 Database Console
 
-Aplikasi ini menggunakan H2 sebagai *in-memory database*. Anda dapat mengakses konsol H2 untuk melihat dan mengelola data di dalam database.
+This application uses H2 as an *in-memory database*. You can access the H2 console to view and manage the data in the database.
 
--   **URL**: [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
--   **JDBC URL**: `jdbc:h2:mem:testdb`
--   **Username**: `sa`
--   **Password**: (kosongkan)
+- **URL**: [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+- **JDBC URL**: `jdbc:h2:mem:testdb`
+- **Username**: `sa`
+- **Password**: (leave blank)
 
-### 2. Dokumentasi API (Swagger UI)
+### 2. API Documentation (Swagger UI)
 
-Proyek ini dilengkapi dengan dokumentasi API interaktif menggunakan SpringDoc OpenAPI (Swagger UI).
+This project includes interactive API documentation using SpringDoc OpenAPI (Swagger UI).
 
--   **URL**: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+- **URL**: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
-Melalui Swagger UI, Anda dapat melihat semua endpoint yang tersedia, serta mencoba mengirim request dan melihat response secara langsung.
+Through Swagger UI, you can view all available endpoints and try sending requests and viewing responses directly.
